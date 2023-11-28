@@ -3,19 +3,19 @@ import Image from "next/image";
 import { IoIosInformationCircleOutline } from "react-icons/io";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { Book } from "@/types/book.types";
-import MyReadingList from "./MyReadingList";
+import { IoIosRemoveCircleOutline } from "react-icons/io";
 
 interface BookPreviewProps {
   book: Book;
   isAlreadyInList: boolean;
-  // readingList: Book[];
+  removeBookFromMyList: (clickedBook: Book) => void;
   addBookToMyList: (clickedBook: Book) => void;
 }
 
 export default function BookPreview({
   book,
   isAlreadyInList,
-  // readingList,
+  removeBookFromMyList,
   addBookToMyList,
 }: BookPreviewProps) {
   const [buttonsVisibility, setButtonsVisibility] = useState(true);
@@ -43,7 +43,13 @@ export default function BookPreview({
             size="2rem"
             className="hover:scale-110"
           />
-          {!isAlreadyInList && (
+          {isAlreadyInList ? (
+            <IoIosRemoveCircleOutline
+              size="2rem"
+              className="hover:scale-110"
+              onClick={() => removeBookFromMyList(book)}
+            />
+          ) : (
             <IoIosAddCircleOutline
               size="2rem"
               className="hover:scale-110"

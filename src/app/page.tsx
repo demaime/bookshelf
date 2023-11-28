@@ -25,7 +25,17 @@ export default function Home() {
     if (!isBookAlreadyAdded(clickedBook)) {
       setReadingList([...readingList, clickedBook]);
     }
-    console.log(readingList);
+  };
+
+  const removeBookFromMyList = (clickedBook: Book) => {
+    if (isBookAlreadyAdded(clickedBook)) {
+      setReadingList(
+        readingList.filter((books) => books.ISBN != clickedBook.ISBN)
+      );
+
+      // let deletedBook = readingList.splice(readingList.indexOf(clickedBook), 1);
+      // setReadingList(readingList.splice(deletedBook));
+    }
   };
 
   async function getBooksList() {
@@ -38,7 +48,7 @@ export default function Home() {
   useEffect(() => {
     getBooksList();
   }, []);
-
+  console.log(readingList);
   return (
     <main className={newsreader.className}>
       <header className="w-100 flex items-center justify-center p-2 font-thin text-4xl">
@@ -68,14 +78,24 @@ export default function Home() {
                   key={book.ISBN}
                   book={book}
                   addBookToMyList={addBookToMyList}
-                  // readingList={readingList}
+                  removeBookFromMyList={removeBookFromMyList}
                 />
               ))}
             </>
           )}
         </section>
-        <section className="w-1/3 h-48">
-          {/* <MyReadingList readingList={readingList} /> */}
+        <section className="w-1/3 flex flex-col items-center">
+          <>
+            {readingList.map((book) => (
+              <BookPreview
+                isAlreadyInList={isBookAlreadyAdded(book)}
+                key={book.ISBN}
+                book={book}
+                addBookToMyList={addBookToMyList}
+                removeBookFromMyList={removeBookFromMyList}
+              />
+            ))}
+          </>
         </section>
       </div>
     </main>

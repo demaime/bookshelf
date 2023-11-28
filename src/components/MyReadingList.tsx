@@ -1,7 +1,21 @@
 import React from "react";
+import BookPreview from "./BookPreview";
 
-let readingList = ["libro"];
-
-export default function MyReadingList() {
-  return <div>{/* <BookPreview /> */}</div>;
+export default function MyReadingList({
+  readingList,
+  isAlreadyInList,
+  key,
+  book,
+  addBookToMyList,
+}) {
+  return (
+    <div>
+      <BookPreview
+        isAlreadyInList={isBookAlreadyAdded(book)}
+        key={book.ISBN}
+        book={book}
+        addBookToMyList={addBookToMyList}
+      />
+    </div>
+  );
 }
