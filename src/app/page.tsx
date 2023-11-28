@@ -17,15 +17,14 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [readingList, setReadingList] = useState<Book[]>([]);
 
-  const addBookToMyList = (clickedBook: Book) => {
-    const isAlreadyInList = readingList.some(
-      (book) => book.ISBN === clickedBook.ISBN
-    );
+  const isBookAlreadyAdded = (book: Book) => {
+    return readingList.some((iteratedBook) => iteratedBook.ISBN === book.ISBN);
+  };
 
-    if (!isAlreadyInList) {
+  const addBookToMyList = (clickedBook: Book) => {
+    if (!isBookAlreadyAdded(clickedBook)) {
       setReadingList([...readingList, clickedBook]);
     }
-
     console.log(readingList);
   };
 
@@ -65,6 +64,7 @@ export default function Home() {
             <>
               {booksList.map((book) => (
                 <BookPreview
+                  isAlreadyInList={isBookAlreadyAdded(book)}
                   key={book.ISBN}
                   book={book}
                   addBookToMyList={addBookToMyList}

@@ -7,12 +7,14 @@ import MyReadingList from "./MyReadingList";
 
 interface BookPreviewProps {
   book: Book;
+  isAlreadyInList: boolean;
   // readingList: Book[];
   addBookToMyList: (clickedBook: Book) => void;
 }
 
 export default function BookPreview({
   book,
+  isAlreadyInList,
   // readingList,
   addBookToMyList,
 }: BookPreviewProps) {
@@ -41,12 +43,13 @@ export default function BookPreview({
             size="2rem"
             className="hover:scale-110"
           />
-          {}
-          <IoIosAddCircleOutline
-            size="2rem"
-            className="hover:scale-110"
-            onClick={() => addBookToMyList(book)}
-          />
+          {!isAlreadyInList && (
+            <IoIosAddCircleOutline
+              size="2rem"
+              className="hover:scale-110"
+              onClick={() => addBookToMyList(book)}
+            />
+          )}
         </div>
       )}
     </div>
