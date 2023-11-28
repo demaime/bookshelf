@@ -36,9 +36,9 @@ export default function BookPreview({
         onClick={handleVisibilityButtonsChange}
       ></Image>
       {buttonsVisibility ? (
-        <div className="w-[7.5rem] flex items-center justify-evenly bg-gray-200 text-red-800 absolute top-1/3 opacity-0 transition-opacity"></div>
+        <div className="w-[7.5rem] flex  bg-gray-200  absolute top-1/3 opacity-0 transition-opacity"></div>
       ) : (
-        <div className="h-16 w-[7.5rem] flex items-center justify-evenly bg-gray-200 text-red-800 absolute top-1/3 opacity-90 transition-opacity">
+        <div className="h-16 w-[7.5rem] flex items-center justify-evenly bg-gray-200  absolute top-1/3 opacity-90 transition-opacity">
           <IoIosInformationCircleOutline
             size="2rem"
             className="hover:scale-110"
@@ -46,14 +46,16 @@ export default function BookPreview({
           {isAlreadyInList ? (
             <IoIosRemoveCircleOutline
               size="2rem"
-              className="hover:scale-110"
+              className="hover:scale-110 drop-shadow-lg"
               onClick={() => removeBookFromMyList(book)}
+              color="red"
             />
           ) : (
             <IoIosAddCircleOutline
               size="2rem"
-              className="hover:scale-110"
+              className="hover:scale-110 drop-shadow-lg"
               onClick={() => addBookToMyList(book)}
+              color="green"
             />
           )}
         </div>
