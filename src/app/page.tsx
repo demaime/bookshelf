@@ -48,7 +48,7 @@ export default function Home() {
   useEffect(() => {
     getBooksList();
   }, []);
-  console.log(readingList);
+
   return (
     <main className={newsreader.className}>
       <header className="w-100 flex items-center justify-center p-2 font-thin text-4xl">
