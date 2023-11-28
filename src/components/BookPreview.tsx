@@ -3,6 +3,7 @@ import Image from "next/image";
 import { IoIosInformationCircleOutline } from "react-icons/io";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { Book } from "@/types/book.types";
+import MyReadingList from "./MyReadingList";
 
 interface BookPreviewProps {
   book: Book;
@@ -40,6 +41,7 @@ export default function BookPreview({
             size="2rem"
             className="hover:scale-110"
           />
+          {}
           <IoIosAddCircleOutline
             size="2rem"
             className="hover:scale-110"

@@ -18,7 +18,14 @@ export default function Home() {
   const [readingList, setReadingList] = useState<Book[]>([]);
 
   const addBookToMyList = (clickedBook: Book) => {
-    setReadingList([...readingList, clickedBook]);
+    const isAlreadyInList = readingList.some(
+      (book) => book.ISBN === clickedBook.ISBN
+    );
+
+    if (!isAlreadyInList) {
+      setReadingList([...readingList, clickedBook]);
+    }
+
     console.log(readingList);
   };
 
