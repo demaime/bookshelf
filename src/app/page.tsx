@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import { PiSpinnerGapThin } from "react-icons/pi";
 import { Newsreader } from "next/font/google";
-// import MyReadingList from "@/components/MyReadingList";
 import BookPreview from "@/components/BookPreview";
 import { Book } from "@/types/book.types";
 
@@ -64,7 +63,10 @@ export default function Home() {
         <h1 className="w-1/3">My Reading List: {readingList.length}</h1>
       </div>
       <div className="flex gap-2 p-2">
-        <section className="flex flex-wrap gap-4 w-2/3 justify-evenly border-r-2 ">
+        <section
+          id="available-list"
+          className="flex flex-wrap gap-4 h-screen overflow-scroll w-2/3 justify-evenly border-r-2 "
+        >
           {isLoading ? (
             <PiSpinnerGapThin
               size="2rem"
@@ -84,7 +86,7 @@ export default function Home() {
             </>
           )}
         </section>
-        <section className="w-1/3 flex flex-col items-center">
+        <section id="reading-list" className="w-1/3 flex flex-col items-center">
           <>
             {readingList.map((book) => (
               <BookPreview
