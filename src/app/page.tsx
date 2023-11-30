@@ -87,8 +87,11 @@ export default function Home() {
           id="reading-list "
           className="w-1/3 flex flex-col items-center h-screen overflow-auto"
         >
-          {readingList.map((book) => (
-            <div className=" p-1" key={book.ISBN}>
+          {readingList.map((book, i) => (
+            <div
+              className={i === 0 ? "p-1" : "p-1 shadow-2xl "}
+              key={book.ISBN}
+            >
               <BookPreview
                 isAlreadyInList={isBookAlreadyAdded(book)}
                 book={book}
