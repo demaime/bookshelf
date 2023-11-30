@@ -27,7 +27,7 @@ export default function BookInfoCard({
             src={book.cover}
             width={280}
             height={450}
-            className="shadow-2xl rounded  ml-4"
+            className="shadow-2xl rounded skew-y-6 ml-4"
           />
           <div className="w-full flex flex-col text-center items-center">
             <h1 className="text-4xl mt-2 text-center p-4">{book.title}</h1>

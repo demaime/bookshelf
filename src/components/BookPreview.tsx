@@ -40,7 +40,7 @@ export default function BookPreview({
           onClick={handleVisibilityButtonsChange}
         ></Image>
         {buttonsVisibility ? (
-          <div className="w-[7.5rem] flex  bg-gray-200  absolute top-1/3 opacity-0 transition-opacity"></div>
+          <div className="w-full flex  bg-gray-200  absolute top-1/3 opacity-0 transition-opacity"></div>
         ) : (
           <div className="h-16 w-full flex items-center justify-evenly bg-gray-200  absolute top-1/3 opacity-90 transition-opacity">
             {!bookInfoCardVisibility && (
