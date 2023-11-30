@@ -65,7 +65,7 @@ export default function Home() {
       <div className="flex gap-2 p-2">
         <section
           id="available-list"
-          className="flex flex-wrap gap-4 h-screen overflow-scroll w-2/3 justify-evenly border-r-2 "
+          className="flex flex-wrap gap-2 h-screen overflow-scroll w-2/3 justify-evenly border-r-2 "
         >
           {isLoading ? (
             <PiSpinnerGapThin

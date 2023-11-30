@@ -34,7 +34,7 @@ export default function BookInfoCard({
             <p className="mt-4">
               <span className="font-bold">{book.pages}</span> pages.
             </p>
-            <p className="font-bold my-4 text-xl">
+            <p className="font-bold my-4 text-xl px-2">
               {book.author.name.toUpperCase()}
             </p>
             <p>{book.year}</p>
@@ -44,10 +44,10 @@ export default function BookInfoCard({
         <div className="w-full flex flex-col justify-evenly h-1/2 items-center ">
           <h1 className="w-full">
             <em className="w-full  text-2xl flex justify-center py-2 border bg-gray-100">
-              SYNOPSIS
+              SINOPSIS
             </em>
           </h1>
-          <p className=" text-center">{book.synopsis}</p>
+          <p className=" text-center px-2">{book.synopsis}</p>
 
           <div className="w-full flex justify-evenly">
             {isAlreadyInList ? (
