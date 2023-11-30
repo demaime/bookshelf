@@ -29,12 +29,12 @@ export default function BookInfoCard({
             height={450}
             className="shadow-2xl rounded skew-y-6 ml-4"
           />
-          <div className="w-full flex flex-col  items-center">
-            <h1 className="text-4xl mt-6 text-center p-4">{book.title}</h1>
+          <div className="w-full flex flex-col text-center items-center">
+            <h1 className="text-4xl mt-2 text-center p-4">{book.title}</h1>
             <p className="mt-4">
               <span className="font-bold">{book.pages}</span> pages.
             </p>
-            <p className="font-bold my-4 text-2xl">
+            <p className="font-bold my-4 text-xl">
               {book.author.name.toUpperCase()}
             </p>
             <p>{book.year}</p>
