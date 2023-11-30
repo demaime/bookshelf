@@ -59,7 +59,7 @@ export default function Home() {
         </h1>
         <h1 className="w-1/3">Mi lista: {readingList.length}</h1>
       </div>
-      <div className="flex gap-2 p-2">
+      <div className="flex">
         <section
           id="available-list"
           className="flex flex-wrap gap-2 h-screen overflow-auto w-2/3 justify-evenly border-r-2 "
@@ -84,20 +84,19 @@ export default function Home() {
           )}
         </section>
         <section
-          id="reading-list"
+          id="reading-list "
           className="w-1/3 flex flex-col items-center h-screen overflow-auto"
         >
-          <>
-            {readingList.map((book) => (
+          {readingList.map((book) => (
+            <div className=" p-1" key={book.ISBN}>
               <BookPreview
                 isAlreadyInList={isBookAlreadyAdded(book)}
-                key={book.ISBN}
                 book={book}
                 addBookToMyList={addBookToMyList}
                 removeBookFromMyList={removeBookFromMyList}
               />
-            ))}
-          </>
+            </div>
+          ))}
         </section>
       </div>
     </main>

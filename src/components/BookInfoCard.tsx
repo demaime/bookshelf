@@ -52,7 +52,7 @@ export default function BookInfoCard({
           <div className="w-full flex justify-evenly">
             {isAlreadyInList ? (
               <button
-                className="border  rounded-xl bg-gray-100 w-40 p-4"
+                className="border rounded-xl bg-gray-100 w-40 p-4"
                 onClick={() => removeBookFromMyList(book)}
               >
                 Quitar de mi lista
