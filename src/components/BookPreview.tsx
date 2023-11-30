@@ -29,7 +29,7 @@ export default function BookPreview({
   const [bookInfoCardVisibility, setBookInfoCardVisibility] = useState(false);
 
   return (
-    <div className="relative">
+    <div>
       <div className="relative ">
         <Image
           className="rounded drop-shadow-lg"
@@ -43,11 +43,14 @@ export default function BookPreview({
           <div className="w-[7.5rem] flex  bg-gray-200  absolute top-1/3 opacity-0 transition-opacity"></div>
         ) : (
           <div className="h-16 w-[7.5rem] flex items-center justify-evenly bg-gray-200  absolute top-1/3 opacity-90 transition-opacity">
-            <IoIosInformationCircleOutline
-              size="2rem"
-              className="hover:scale-110"
-              onClick={() => setBookInfoCardVisibility(true)}
-            />
+            {!bookInfoCardVisibility && (
+              <IoIosInformationCircleOutline
+                size="2rem"
+                className="hover:scale-110"
+                onClick={() => setBookInfoCardVisibility(true)}
+              />
+            )}
+
             {isAlreadyInList ? (
               <IoIosRemoveCircleOutline
                 size="2rem"
@@ -66,13 +69,14 @@ export default function BookPreview({
           </div>
         )}
       </div>
-      {bookInfoCardVisibility ? (
+      {bookInfoCardVisibility && (
         <BookInfoCard
           book={book}
           setBookInfoCardVisibility={setBookInfoCardVisibility}
+          isAlreadyInList={isAlreadyInList}
+          addBookToMyList={addBookToMyList}
+          removeBookFromMyList={removeBookFromMyList}
         />
-      ) : (
-        ""
       )}
     </div>
   );

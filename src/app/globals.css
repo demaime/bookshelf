@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-.blur {
-  backdrop-filter: blur(5px);
+.blur-background {
+  backdrop-filter: blur(8px);
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.5
+  ); /* Ajusta la opacidad según tus necesidades */
 }

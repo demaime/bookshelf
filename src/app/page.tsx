@@ -58,9 +58,9 @@ export default function Home() {
       </header>
       <div className="flex w-100 font-bold text-center border-b-2">
         <h1 className="w-2/3 text-red-800 ">
-          Available Books: {booksList.length - readingList.length}
+          Libros disponibles: {booksList.length - readingList.length}
         </h1>
-        <h1 className="w-1/3">My Reading List: {readingList.length}</h1>
+        <h1 className="w-1/3">Mi lista: {readingList.length}</h1>
       </div>
       <div className="flex gap-2 p-2">
         <section
