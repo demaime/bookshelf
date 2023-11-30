@@ -62,7 +62,7 @@ export default function Home() {
       <div className="flex gap-2 p-2">
         <section
           id="available-list"
-          className="flex flex-wrap gap-2 h-screen overflow-scroll w-2/3 justify-evenly border-r-2 "
+          className="flex flex-wrap gap-2 h-screen overflow-auto w-2/3 justify-evenly border-r-2 "
         >
           {isLoading ? (
             <PiSpinnerGapThin
@@ -83,7 +83,10 @@ export default function Home() {
             </>
           )}
         </section>
-        <section id="reading-list" className="w-1/3 flex flex-col items-center">
+        <section
+          id="reading-list"
+          className="w-1/3 flex flex-col items-center h-screen overflow-auto"
+        >
           <>
             {readingList.map((book) => (
               <BookPreview
