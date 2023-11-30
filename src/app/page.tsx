@@ -31,9 +31,6 @@ export default function Home() {
       setReadingList(
         readingList.filter((books) => books.ISBN != clickedBook.ISBN)
       );
-
-      // let deletedBook = readingList.splice(readingList.indexOf(clickedBook), 1);
-      // setReadingList(readingList.splice(deletedBook));
     }
   };
 

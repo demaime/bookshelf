@@ -5,7 +5,7 @@ import { AiFillCloseCircle } from "react-icons/ai";
 
 interface BookInfoCardProps {
   book: Book;
-  setBookInfoCardVisibility: (arg0: boolean) => void;
+  setBookInfoCardVisibility: (visibility: boolean) => void;
   isAlreadyInList: boolean;
   removeBookFromMyList: (clickedBook: Book) => void;
   addBookToMyList: (clickedBook: Book) => void;
@@ -19,7 +19,7 @@ export default function BookInfoCard({
   addBookToMyList,
 }: BookInfoCardProps) {
   return (
-    <div className="w-screen h-screen fixed bg-red-100 top-0 left-0 blur-background z-20">
+    <div className="w-screen h-screen fixed top-0 left-0 backdrop-blur z-20">
       <div className="bg-white border-2 fixed z-20 h-2/3 w-full top-36  inset-x-0 flex flex-col justify-between ">
         <div className="w-full h-1/2 flex">
           <Image
@@ -32,7 +32,7 @@ export default function BookInfoCard({
           <div className="w-full flex flex-col text-center items-center">
             <h1 className="text-4xl mt-2 text-center p-4">{book.title}</h1>
             <p className="mt-4">
-              <span className="font-bold">{book.pages}</span> pages.
+              <span className="font-bold">{book.pages}</span> páginas.
             </p>
             <p className="font-bold my-4 text-xl px-2">
               {book.author.name.toUpperCase()}
