@@ -17,7 +17,6 @@ export default function Home() {
   const storageList = JSON.parse(localStorage.getItem("readingList")!);
   const [readingList, setReadingList] = useState<Book[]>(storageList || []);
   const genres = [...new Set(booksList.map((book) => book.genre))];
-  console.log(genres);
 
   const isBookAlreadyAdded = (book: Book) => {
     return readingList.some((iteratedBook) => iteratedBook.ISBN === book.ISBN);
