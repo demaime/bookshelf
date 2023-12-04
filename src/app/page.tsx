@@ -14,7 +14,9 @@ const newsreader = Newsreader({
 export default function Home() {
   const [booksList, setBooksList] = useState<Book[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const storageList = JSON.parse(localStorage.getItem("readingList")!);
+  const storageList =
+    typeof window !== "undefined" &&
+    JSON.parse(localStorage.getItem("readingList")!);
   const [readingList, setReadingList] = useState<Book[]>(storageList || []);
   const genres = [...new Set(booksList.map((book) => book.genre))];
 
