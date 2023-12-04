@@ -19,15 +19,15 @@ export default function BookInfoCard({
   addBookToMyList,
 }: BookInfoCardProps) {
   return (
-    <div className="w-screen h-screen fixed top-0 left-0 backdrop-blur z-20">
-      <div className="bg-white border-2 fixed z-20 h-2/3 w-full top-36  inset-x-0 flex flex-col justify-between ">
+    <div className="w-screen h-screen fixed top-0 left-0 backdrop-blur-xl z-20">
+      <div className="bg-white border-2 fixed z-20 h-2/3 w-full top-36  inset-x-0 flex flex-col justify-between shadow-lg">
         <div className="w-full h-1/2 flex">
           <Image
             alt="Book Cover"
             src={book.cover}
             width={280}
             height={450}
-            className="shadow-2xl rounded skew-y-6 ml-4"
+            className="shadow-2xl rounded skew-y-6 ml-4 border-2 border-white"
           />
           <div className="w-full flex flex-col text-center items-center">
             <h1 className="text-4xl mt-2 text-center p-4">{book.title}</h1>

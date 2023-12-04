@@ -65,8 +65,8 @@ export default function Home() {
         </h1>
         <h1 className="w-1/3">Mi lista: {readingList.length}</h1>
       </div>
-      <div className="w-full bg-green-200 flex justify-evenly items-center py-2">
-        Género:
+      <div className="w-full text-red-800 bg-red-800 my-2 flex justify-evenly items-center py-2 font-bold">
+        <p className="text-white">Género:</p>
         <select name="genre-filter" id="genre-filter" className="p-2">
           {genres.map((genre) => (
             <option key={genre} value={genre}>
@@ -75,7 +75,7 @@ export default function Home() {
           ))}
         </select>
       </div>
-      <div className="flex">
+      <div className="flex border-t-2 p-2">
         <section
           id="available-list"
           className="flex flex-wrap gap-2 h-screen overflow-auto w-2/3 justify-evenly border-r-2 "

@@ -35,8 +35,8 @@ export default function BookPreview({
           className="rounded drop-shadow-lg"
           alt="Book Cover"
           src={book.cover}
-          width={120}
-          height={180}
+          width={80}
+          height={130}
           onClick={handleVisibilityButtonsChange}
         ></Image>
         {buttonsVisibility ? (
