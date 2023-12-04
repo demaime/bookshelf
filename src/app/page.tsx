@@ -16,6 +16,8 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const storageList = JSON.parse(localStorage.getItem("readingList")!);
   const [readingList, setReadingList] = useState<Book[]>(storageList || []);
+  const genres = [...new Set(booksList.map((book) => book.genre))];
+  console.log(genres);
 
   const isBookAlreadyAdded = (book: Book) => {
     return readingList.some((iteratedBook) => iteratedBook.ISBN === book.ISBN);
@@ -50,14 +52,6 @@ export default function Home() {
     localStorage.setItem("readingList", JSON.stringify(readingList));
   }, [readingList]);
 
-  //   useEffect(() => {
-  //  if (typeof window !== "undefined" && window.localStorage) {
-  //    const storageList = localStorage.getItem("readingList");
-  //    console.log(storageList);
-  //  }
-  //     // setReadingList(JSON.parse(storageList));
-  //   }, []);
-
   return (
     <main className={newsreader.className}>
       <header className="w-100 flex items-center justify-center p-2 font-thin text-4xl">
@@ -71,6 +65,16 @@ export default function Home() {
           Libros disponibles: {booksList.length - readingList.length}
         </h1>
         <h1 className="w-1/3">Mi lista: {readingList.length}</h1>
+      </div>
+      <div className="w-full bg-green-200 flex justify-evenly items-center py-2">
+        Género:
+        <select name="genre-filter" id="genre-filter" className="p-2">
+          {genres.map((genre) => (
+            <option key={genre} value={genre}>
+              {genre}
+            </option>
+          ))}
+        </select>
       </div>
       <div className="flex">
         <section
