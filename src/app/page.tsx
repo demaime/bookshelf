@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { PiSpinnerGapThin } from "react-icons/pi";
 import { Newsreader } from "next/font/google";
 import BookPreview from "@/components/BookPreview";
@@ -14,11 +14,16 @@ const newsreader = Newsreader({
 export default function Home() {
   const [booksList, setBooksList] = useState<Book[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const storageList =
+  const localStorageList =
     typeof window !== "undefined" &&
     JSON.parse(localStorage.getItem("readingList")!);
-  const [readingList, setReadingList] = useState<Book[]>(storageList || []);
-  const genres = [...new Set(booksList.map((book) => book.genre))];
+  const [readingList, setReadingList] = useState<Book[]>(
+    localStorageList || []
+  );
+  const genresList = [...new Set(booksList.map((book) => book.genre))];
+  const [chosenGenre, setChosenGenre] = useState("Todas");
+
+  console.log(chosenGenre);
 
   const isBookAlreadyAdded = (book: Book) => {
     return readingList.some((iteratedBook) => iteratedBook.ISBN === book.ISBN);
@@ -69,8 +74,14 @@ export default function Home() {
       </div>
       <div className="w-full text-red-800 bg-red-800 my-2 flex justify-evenly items-center py-2 font-bold">
         <p className="text-white">Género:</p>
-        <select name="genre-filter" id="genre-filter" className="p-2">
-          {genres.map((genre) => (
+        <select
+          value={chosenGenre}
+          name="genre-filter"
+          className="p-2"
+          onChange={(e) => setChosenGenre(e.target.value)}
+        >
+          <option value="Todas">Todas las categorías</option>
+          {genresList.map((genre) => (
             <option key={genre} value={genre}>
               {genre}
             </option>
