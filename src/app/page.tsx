@@ -23,7 +23,13 @@ export default function Home() {
   const genresList = [...new Set(booksList.map((book) => book.genre))];
   const [chosenGenre, setChosenGenre] = useState("Todas");
 
-  console.log(chosenGenre);
+  const filteredGenreBookList = booksList.filter(
+    (book) => chosenGenre === "Todas" || book.genre === chosenGenre
+  );
+
+  const filteredGenreReadingList = readingList.filter(
+    (book) => chosenGenre === "Todas" || book.genre === chosenGenre
+  );
 
   const isBookAlreadyAdded = (book: Book) => {
     return readingList.some((iteratedBook) => iteratedBook.ISBN === book.ISBN);
@@ -68,9 +74,10 @@ export default function Home() {
       </header>
       <div className="flex w-100 font-bold text-center border-b-2">
         <h1 className="w-2/3 text-red-800 ">
-          Libros disponibles: {booksList.length - readingList.length}
+          Libros disponibles:{" "}
+          {filteredGenreBookList.length - filteredGenreReadingList.length}
         </h1>
-        <h1 className="w-1/3">Mi lista: {readingList.length}</h1>
+        <h1 className="w-1/3">Mi lista: {filteredGenreReadingList.length}</h1>
       </div>
       <div className="w-full text-red-800 bg-red-800 my-2 flex justify-evenly items-center py-2 font-bold">
         <p className="text-white">Género:</p>
@@ -100,7 +107,7 @@ export default function Home() {
             />
           ) : (
             <>
-              {booksList.map((book) => (
+              {filteredGenreBookList.map((book) => (
                 <BookPreview
                   isAlreadyInList={isBookAlreadyAdded(book)}
                   key={book.ISBN}
@@ -116,19 +123,23 @@ export default function Home() {
           id="reading-list "
           className="w-1/3 flex flex-col items-center h-screen overflow-auto"
         >
-          {readingList.map((book, i) => (
-            <div
-              className={i === 0 ? "p-1" : "p-1 shadow-2xl "}
-              key={book.ISBN}
-            >
-              <BookPreview
-                isAlreadyInList={isBookAlreadyAdded(book)}
-                book={book}
-                addBookToMyList={addBookToMyList}
-                removeBookFromMyList={removeBookFromMyList}
-              />
-            </div>
-          ))}
+          {readingList
+            .filter(
+              (book) => chosenGenre === "Todas" || book.genre === chosenGenre
+            )
+            .map((book, i) => (
+              <div
+                className={i === 0 ? "p-1" : "p-1 shadow-2xl "}
+                key={book.ISBN}
+              >
+                <BookPreview
+                  isAlreadyInList={isBookAlreadyAdded(book)}
+                  book={book}
+                  addBookToMyList={addBookToMyList}
+                  removeBookFromMyList={removeBookFromMyList}
+                />
+              </div>
+            ))}
         </section>
       </div>
     </main>
