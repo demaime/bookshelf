@@ -1,20 +1,14 @@
 "use client";
 import { useEffect, useState } from "react";
 import { PiSpinnerGapThin } from "react-icons/pi";
-import { Newsreader } from "next/font/google";
 import BookPreview from "@/components/BookPreview";
 import { Book } from "@/types/book.types";
-
-const newsreader = Newsreader({
-  subsets: ["latin"],
-  weight: "300",
-  style: "normal",
-});
+import { newsreader } from "./page";
 
 export default function Home() {
   const [booksList, setBooksList] = useState<Book[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const storageList = JSON.parse(localStorage.getItem("readingList")!);
+  const storageList = JSON.parse(localStorage.getItem("readingList"));
   const [readingList, setReadingList] = useState<Book[]>(storageList || []);
 
   const isBookAlreadyAdded = (book: Book) => {
@@ -57,7 +51,6 @@ export default function Home() {
   //  }
   //     // setReadingList(JSON.parse(storageList));
   //   }, []);
-
   return (
     <main className={newsreader.className}>
       <header className="w-100 flex items-center justify-center p-2 font-thin text-4xl">
