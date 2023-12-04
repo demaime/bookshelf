@@ -64,6 +64,18 @@ export default function Home() {
     localStorage.setItem("readingList", JSON.stringify(readingList));
   }, [readingList]);
 
+  useEffect(() => {
+    const storageCallback = () => {
+      setReadingList(JSON.parse(localStorage.getItem("readingList")!));
+    };
+
+    addEventListener("storage", storageCallback);
+
+    return () => {
+      removeEventListener("storage", storageCallback);
+    };
+  }, []);
+
   return (
     <main className={newsreader.className}>
       <header className="w-100 flex items-center justify-center p-2 font-thin text-4xl">
@@ -77,7 +89,9 @@ export default function Home() {
           Libros disponibles:{" "}
           {filteredGenreBookList.length - filteredGenreReadingList.length}
         </h1>
-        <h1 className="w-1/3">Mi lista: {filteredGenreReadingList.length}</h1>
+        <h1 className="w-1/3">
+          En mi lista: {filteredGenreReadingList.length}
+        </h1>
       </div>
       <div className="w-full text-red-800 bg-red-800 my-2 flex justify-evenly items-center py-2 font-bold">
         <p className="text-white">Género:</p>
