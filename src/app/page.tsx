@@ -134,8 +134,8 @@ export default function Home() {
           )}
         </section>
         <section
-          id="reading-list "
-          className="w-1/3 flex flex-col items-center h-screen overflow-auto"
+          id="reading-list"
+          className="w-1/3 flex flex-col items-center h-screen overflow-auto pt-4 "
         >
           {readingList
             .filter(
@@ -143,7 +143,11 @@ export default function Home() {
             )
             .map((book, i) => (
               <div
-                className={i === 0 ? "p-1" : "p-1 shadow-2xl "}
+                className={
+                  i === 0
+                    ? "p-1 hover:z-50 hover:scale-125 transition-transform"
+                    : "-mt-12 shadow-2xl hover:z-50 hover:scale-125 transition-transform"
+                }
                 key={book.ISBN}
               >
                 <BookPreview

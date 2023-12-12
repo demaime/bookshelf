@@ -23,24 +23,24 @@ export default function BookPreview({
 
   const handleVisibilityButtonsChange = () => {
     setButtonsVisibility(!buttonsVisibility);
-    setTimeout(() => setButtonsVisibility(true), 3000);
+    setTimeout(() => setButtonsVisibility(true), 1500);
   };
 
   const [bookInfoCardVisibility, setBookInfoCardVisibility] = useState(false);
 
   return (
-    <div>
+    <div className="">
       <div className="relative ">
         <Image
-          className="rounded drop-shadow-lg"
+          className="rounded drop-shadow-lg xl:w-full"
           alt="Book Cover"
           src={book.cover}
-          width={80}
+          width={100}
           height={130}
           onClick={handleVisibilityButtonsChange}
         ></Image>
         {buttonsVisibility ? (
-          <div className="w-full flex  bg-gray-200  absolute top-1/3 opacity-0 transition-opacity"></div>
+          <div className="w-full flex bg-gray-200 absolute top-1/3 opacity-0 transition-opacity"></div>
         ) : (
           <div className="h-16 w-full flex items-center justify-evenly bg-gray-200  absolute top-1/3 opacity-90 transition-opacity">
             {!bookInfoCardVisibility && (

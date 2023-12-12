@@ -22,16 +22,16 @@ export default function BookInfoCard({
     <div className="w-screen h-screen fixed top-0 left-0 backdrop-blur-xl z-20">
       <div className="sm:w-9/12 md:w-3/5 w-1/2 center-fixed flex flex-col justify-between shadow-lg bg-white border-2 fixed z-20 h-2/3 w-full ">
         <div className="w-full h-1/2 flex justify-between items-center">
-          <div className=" w-full rounded skew-y-6 ml-1 drop-shadow-md h-full">
+          <div className="w-1/3 rounded skew-y-6 ml-1 drop-shadow-md h-full flex justify-center">
             <Image
               alt="Book Cover"
               src={book.cover}
-              width={280}
-              height={450}
-              className="shadow-2xl rounded skew-y-6 ml-4 border-2 border-white"
+              width={110}
+              height={220}
+              className="shadow-2xl rounded skew-y-6 ml-4 border-2 border-white xl:w-1/2"
             />
           </div>
-          <div className="w-1/2 md:w-2/3 flex flex-col text-center items-center">
+          <div className="w-2/3 flex flex-col text-center items-center">
             <h1 className="md:text-4xl text-2xl mt-2 text-center p-2">
               {book.title}
             </h1>
@@ -58,21 +58,21 @@ export default function BookInfoCard({
           <div className="w-full flex justify-evenly">
             {isAlreadyInList ? (
               <button
-                className="border rounded-xl bg-gray-100 w-40 p-4 sm:w-12 sm:p-2"
+                className="border rounded-xl bg-gray-200 w-40 p-4 sm:w-40 sm:p-2 text-xs"
                 onClick={() => removeBookFromMyList(book)}
               >
                 Quitar de mi lista
               </button>
             ) : (
               <button
-                className="border rounded-xl bg-gray-100 w-36 p-2 sm:w-40 sm:p-4"
+                className="border rounded-xl bg-gray-200 w-36 p-2 sm:w-40 sm:p-4 text-xs"
                 onClick={() => addBookToMyList(book)}
               >
                 Agregar a mi Lista
               </button>
             )}
             <button
-              className="border rounded-xl bg-gray-100 w-36 p-2 sm:w-40 sm:p-4"
+              className="border rounded-xl bg-gray-200 w-36 p-2 sm:w-40 sm:p-4 text-xs"
               onClick={() => setBookInfoCardVisibility(false)}
             >
               Salir
