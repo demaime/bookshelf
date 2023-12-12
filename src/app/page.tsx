@@ -112,7 +112,7 @@ export default function Home() {
       <div className="flex border-t-2 p-2">
         <section
           id="available-list"
-          className="flex flex-wrap gap-2 h-screen overflow-auto w-2/3 justify-evenly border-r-2 "
+          className="flex flex-wrap gap-2 h-full overflow-auto w-2/3 justify-evenly border-r-2 lg:grid lg:grid-flow-row-dense lg:grid-cols-9"
         >
           {isLoading ? (
             <PiSpinnerGapThin
@@ -135,7 +135,7 @@ export default function Home() {
         </section>
         <section
           id="reading-list"
-          className="w-1/3 flex flex-col items-center h-screen overflow-auto pt-4 "
+          className="w-1/3 flex flex-col items-center h-full overflow-auto pt-4 "
         >
           {readingList
             .filter(
@@ -145,8 +145,8 @@ export default function Home() {
               <div
                 className={
                   i === 0
-                    ? "p-1 hover:z-50 hover:scale-125 transition-transform"
-                    : "-mt-12 shadow-2xl hover:z-50 hover:scale-125 transition-transform"
+                    ? "hover:z-30 transition-transform"
+                    : "hover:z-30 shadow-2xl transition-transform -mt-24"
                 }
                 key={book.ISBN}
               >

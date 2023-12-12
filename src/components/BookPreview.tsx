@@ -29,13 +29,13 @@ export default function BookPreview({
   const [bookInfoCardVisibility, setBookInfoCardVisibility] = useState(false);
 
   return (
-    <div className="">
+    <>
       <div className="relative ">
         <Image
           className="rounded drop-shadow-lg xl:w-full"
           alt="Book Cover"
           src={book.cover}
-          width={100}
+          width={90}
           height={130}
           onClick={handleVisibilityButtonsChange}
         ></Image>
@@ -78,6 +78,6 @@ export default function BookPreview({
           removeBookFromMyList={removeBookFromMyList}
         />
       )}
-    </div>
+    </>
   );
 }
